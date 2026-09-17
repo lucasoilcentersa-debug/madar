@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer">
 <title>لوكاس أوتو لوب | خدمات الزيوت</title><meta name="description" content="سجل عملاء خدمات زيوت لوكاس — الخدمة، المدينة، الجنسية ونوع السيارة، وتقارير المدن اليومية.">
-<link rel="icon" type="image/png" href="lucas-shield.png"><link rel="stylesheet" href="brand.css?v=2">
+<link rel="icon" type="image/png" href="lucas-shield.png"><link rel="stylesheet" href="brand.css?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,6 +13,7 @@
 <section class="card auth-card" id="authPanel"><img src="lucas-shield.png" alt="لوكاس" width="80" height="80"><h1 id="authTitle">رابط الموظفين</h1><p id="authDescription">استخدم رابط الفريق الخاص للوصول إلى سجل العملاء المشترك.</p></section>
 <div id="workspace" hidden>
 <div class="heading"><div><span class="eyebrow">خدمات لوكاس / التقرير اليومي</span><h1>يومك في مركز الخدمة</h1><p id="dayLabel"></p></div><div class="date-control"><label for="reportDate">عرض سجل يوم</label><input type="date" id="reportDate"></div></div>
+<section class="card export-card" aria-labelledby="exportTitle"><div><span class="eyebrow">تقارير المركز</span><h2 id="exportTitle">تحميل تقرير PDF</h2><p>جميع بيانات العملاء، وإجمالي التسجيلات ونسب المدن خلال الفترة.</p></div><form id="exportForm"><div class="field"><label for="exportPeriod">نوع التقرير</label><select id="exportPeriod"><option value="day">يومي</option><option value="week">أسبوعي</option><option value="month">شهري</option></select></div><div class="field"><label for="exportDate" id="exportDateLabel">تاريخ التقرير</label><input type="date" id="exportDate" required></div><button type="submit" class="primary" id="exportButton">تجهيز تقرير PDF</button></form><p id="exportRange" class="export-range"></p><p id="exportStatus" role="status" aria-live="polite"></p></section>
 <div class="layout">
 <aside class="card entry"><div class="entry-head"><span class="section-label">استقبال العملاء</span><h2>تسجيل زيارة جديدة</h2><p>بيانات العميل والخدمة المطلوبة</p></div><div class="entry-body"><form id="entryForm">
 <div class="field"><label for="service">الخدمة المطلوبة <span aria-hidden="true">*</span></label><input id="service" maxlength="120" placeholder="اكتب الخدمة المطلوبة" required autocomplete="off"></div>
@@ -28,5 +29,6 @@
 </section></div>
 </div>
 <footer class="footer"><div><img src="lucas-wordmark.png" alt="LUCAS OIL" width="150" height="36"><span>لوكاس أوتو لوب · خدمات الزيوت</span></div><p>نسبة المدينة = عدد عملائها ÷ إجمالي اليوم × ١٠٠</p></footer>
-</main><script src="config.js" defer></script><script src="app.js?v=2" defer></script>
+</main><dialog id="pdfPreview" aria-labelledby="pdfTitle"><div class="pdf-toolbar"><div><h2 id="pdfTitle">التقرير جاهز</h2><p id="pdfDescription"></p></div><div class="pdf-actions"><a class="primary" id="pdfDownload">تحميل PDF</a><button type="button" id="pdfClose">إغلاق</button></div></div><div id="pdfPages"></div></dialog><script src="config.js" defer></script><script src="app.js?v=2" defer></script><script src="reports.js?v=1" defer></script>
 </body></html>
+
