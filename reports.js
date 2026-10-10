@@ -86,9 +86,9 @@ const LucasReports=(()=>{
     text('تاريخ إصدار التقرير: '+new Intl.DateTimeFormat('ar-SA',{dateStyle:'medium',timeStyle:'short',calendar:'gregory',timeZone:'Asia/Riyadh'}).format(new Date()),W-M,y,21,'#64748b');y+=58;
     if(!rows.length){text('لا توجد تسجيلات خلال الفترة المحددة.',W-M,y,29);save();return {jpegs,blob:pdf(jpegs,W,H)}}
     table(['المدينة','عدد العملاء','النسبة من إجمالي الفترة'],[740,350,466],cities.map(([city,count])=>[city,nf.format(count),pf.format(count/rows.length*100)+'٪']),'توزيع العملاء حسب المدينة');
-    if(y+44>BOTTOM)newPage('ملاحظات التقرير');text('النسب مقربة لأقرب عُشر. علامة — تعني أن البيانات غير مسجلة في السجلات القديمة.',W-M,y,20,'#64748b');
+    if(y+44>BOTTOM)newPage('ملاحظات التقرير');text('النسب مقربة لأقرب عُشر. علامة — تعني أن البيانات غير مسجلة.',W-M,y,20,'#64748b');
     newPage('جميع تسجيلات العملاء خلال الفترة');
-    table(['#','التاريخ','الوقت','الخدمة المطلوبة','المدينة','الجنسية','نوع السيارة'],[65,185,155,360,255,230,306],rows.map((r,i)=>[nf.format(i+1),r.date,r.time,r.service,r.city,r.nationality||'—',r.vehicle_type||'—']),'جميع تسجيلات العملاء خلال الفترة');
+    table(['#','التاريخ','الوقت','الخدمة المطلوبة','المدينة','الجنسية','نوع السيارة','قادم من'],[55,165,135,270,190,170,265,306],rows.map((r,i)=>[nf.format(i+1),r.date,r.time,r.service,r.city,r.nationality||'—',r.vehicle_type||'—',r.arrival_source||'—']),'جميع تسجيلات العملاء خلال الفترة');
     save();return {jpegs,blob:pdf(jpegs,W,H)};
   }
   return {periodDates,collect,pdf,render};
